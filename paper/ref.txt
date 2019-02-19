@@ -1,0 +1,65 @@
+@book{goodfellow2016deep,
+  title={Deep learning},
+  author={Goodfellow, Ian and Bengio, Yoshua and Courville, Aaron},
+  year={2016},
+  publisher={MIT press}
+}
+
+@inproceedings{poultney2007efficient,
+  title={Efficient learning of sparse representations with an energy-based model},
+  author={Poultney, Christopher and Chopra, Sumit and Cun, Yann L and others},
+  booktitle={Advances in neural information processing systems},
+  pages={1137--1144},
+  year={2007}
+}
+@article{rumelhart1988learning,
+  title={Learning representations by back-propagating errors},
+  author={Rumelhart, David E and Hinton, Geoffrey E and Williams, Ronald J and others},
+  journal={Cognitive modeling},
+  volume={5},
+  number={3},
+  pages={1},
+  year={1988}
+}
+
+@article{hinton2006fast,
+  title={A fast learning algorithm for deep belief nets},
+  author={Hinton, Geoffrey E and Osindero, Simon and Teh, Yee-Whye},
+  journal={Neural computation},
+  volume={18},
+  number={7},
+  pages={1527--1554},
+  year={2006},
+  publisher={MIT Press}
+}
+@article{hinton2006reducing,
+  title={Reducing the dimensionality of data with neural networks},
+  author={Hinton, Geoffrey E and Salakhutdinov, Ruslan R},
+  journal={science},
+  volume={313},
+  number={5786},
+  pages={504--507},
+  year={2006},
+  publisher={American Association for the Advancement of Science}
+}
+
+@article{maaten2008visualizing,
+  title={Visualizing data using t-SNE},
+  author={Maaten, Laurens van der and Hinton, Geoffrey},
+  journal={Journal of machine learning research},
+  volume={9},
+  number={Nov},
+  pages={2579--2605},
+  year={2008}
+}
+
+@article{lecun1998gradient,
+  title={Gradient-based learning applied to document recognition},
+  author={LeCun, Yann and Bottou, L{\'e}on and Bengio, Yoshua and Haffner, Patrick and others},
+  journal={Proceedings of the IEEE},
+  volume={86},
+  number={11},
+  pages={2278--2324},
+  year={1998},
+  publisher={Taipei, Taiwan}
+}

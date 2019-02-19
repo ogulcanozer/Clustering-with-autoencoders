@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1550438182 "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.tex" "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.pdf" "main" 1550438183
+["pdflatex"] 1550523825 "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.tex" "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.pdf" "main" 1550523826
   "C:/Users/ogulc/AppData/Local/MiKTeX/2.9/miktex/data/le/pdftex/pdflatex.fmt" 1550090699 4166922 86b02de9f897b7dcc9ede3d99b4a9fb1 ""
   "C:/Users/ogulc/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map" 1550347408 80453 73224248f0a73acd005b5611945eaaa6 ""
   "C:/Users/ogulc/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc" 1458473887 4993 1194fb36dfcb11d9ae9802f2b00b60a3 ""
@@ -29,17 +29,14 @@
   "C:/Users/ogulc/AppData/Local/Programs/MiKTeX 2.9/fonts/vf/adobe/times/ptmri7t.vf" 1136772254 1384 a9d8adaf491ce34e5fba99dc7bbe5f39 ""
   "C:/Users/ogulc/AppData/Local/Programs/MiKTeX 2.9/tex/latex/ieeetran/IEEEtran.cls" 1440627644 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
   "C:/Users/ogulc/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/ot1ptm.fd" 1137114230 961 15056f4a61917ceed3a44e4ac11fcc52 ""
-  "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.aux" 1550438183 834 53ec0d988ac837af7ab5964cbdcd124b ""
-  "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.tex" 1550438181 25896 b446c56ab8515d146f53ca85f9720028 ""
-  "main.aux" 1550438183 834 53ec0d988ac837af7ab5964cbdcd124b ""
-  "main.tex" 1550438181 25896 b446c56ab8515d146f53ca85f9720028 ""
+  "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.aux" 1550523826 646 fa23b4b5eaaa9e7b0f7bfe05dc185a49 ""
+  "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.tex" 1550523824 27802 12403f71233f7fd1dc0ccf3b941fa6bb ""
+  "main.aux" 1550523826 646 fa23b4b5eaaa9e7b0f7bfe05dc185a49 ""
+  "main.tex" 1550523824 27802 12403f71233f7fd1dc0ccf3b941fa6bb ""
   (generated)
-  "c:/Users/ogulc/Desktop/pySource/DSDM/paper/main.pdf"
   "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.pdf"
-  "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.aux"
-  "main.aux"
-  "c:/Users/ogulc/Desktop/pySource/DSDM/paper/main.log"
-  "c:/Users/ogulc/Desktop/pySource/DSDM/paper/main.aux"
   "main.pdf"
   "main.log"
+  "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.aux"
   "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.log"
+  "main.aux"
