@@ -21,7 +21,7 @@ path = os.path.abspath(os.path.join(os.path.dirname(__file__),'..','data'))
 # Main program.
 #-------------------------------------------------------------------------------
 
-#Read and seperate the diabetes dataset.
+#Read and seperate the mnist dataset.
 
 mnist = input_data.read_data_sets(os.path.join(path,'mnist'), one_hot=True)
 X_train = mnist.train.images
