@@ -112,22 +112,14 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
-  % declare the path(s) where your graphic files are
-  % \graphicspath{{../pdf/}{../jpeg/}}
-  % and their extensions so you won't have to specify these with
-  % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+  \usepackage[pdftex]{graphicx}
+  \graphicspath{ {./images/} }
+  \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
 \else
-  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
-  % will default to the driver specified in the system graphics.cfg if no
-  % driver is specified.
-  % \usepackage[dvips]{graphicx}
-  % declare the path(s) where your graphic files are
-  % \graphicspath{{../eps/}}
-  % and their extensions so you won't have to specify these with
-  % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.eps}
+
+  \usepackage[dvips]{graphicx}
+  \graphicspath{{../eps/}}
+  \DeclareGraphicsExtensions{.eps}
 \fi
 % graphicx was written by David Carlisle and Sebastian Rahtz. It is
 % required if you want graphics, photos, etc. graphicx.sty is already
@@ -475,9 +467,11 @@ features from it. In this work, we will look at auto encoders, one of those proc
 Auto encoders are a part of representational learning, which can be trained with or without labels.
 They play a key role in deep learning applications. They are used in dimensionality reduction and feature 
 extraction, and together with deep learning they gained a lot of traction after Hinton proposed a method to train 
-deep belief networks one layer at a time [2]. The motivation for using auto encoders is, in what they do they are
+deep belief networks one layer at a time [2].Another addition to the auto encoder will be the softmax activation function.
+Since softmax gives us the probability distribution over-the classes of our data- the output vector [3], we can use the output of our
+encoder to train a clustering algorithm. The motivation for using auto encoders is, in what they do they are
 very similar to traditional feature selection algorithms, but they are also capable of learning good features from
-complex and high dimensional data. This aspect of auto encoders and unsupervised learning in general is important.
+complex and high dimensional data. This aspect of auto encoders and unsupervised learning in general is important. 
 As LeCun states in [3], people are not paying attention to unsupervised learning because of the success of the supervised learning
 in recent years. But it will be far more important in the future because of how living beings perceive and learn, they do not
 need labels to recognize the world around them.\par In this paper we are going to look at previous work (Section II),
@@ -487,29 +481,73 @@ give detailed information about them. The planned experiments and analyses for t
 Evaluation methods that are going to be used after the experiments will be presented in Section V.
 
 \section{Background}
-The conclusion goes here.
-% An example of a floating figure using the graphicx package.
-% Note that \label must occur AFTER (or within) \caption.
-% For figures, \caption should occur after the \includegraphics.
-% Note that IEEEtran v1.7 and later has special internal code that
-% is designed to preserve the operation of \label within \caption
-% even when the captionsoff option is in effect. However, because
-% of issues like this, it may be the safest practice to put all your
-% \label just after \caption rather than within \caption{}.
-%
-% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
-% option should be used if it is desired that the figures are to be
-% displayed while in draft mode.
-%
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=2.5in]{myfigure}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-%\caption{Simulation results for the network.}
-%\label{fig_sim}
-%\end{figure}
+
+\section{Methodology}
+Our main goal in this study is to correctly cluster data using unsupervised machine learning techniques.
+To accomplish this task we will go through three different subtasks. First, we will use traditional clustering algorithms 
+to see how they perform on our datasets. In the second part, we will use auto encoders to learn good features
+from our datasets, then we will pass the- extracted features- outputs of the auto encoder to a clustering algorithm to see the difference
+in their performance. Finally, we will change the output activation function of the auto encoder to the softmax 
+activation function, which will give us the probability distribution of the output vector. Then we will use
+the maximum weighted class as our cluster assignment.\par
+Before starting the experiments the datasets will be examined and processed appropriately for each sub-task.
+For the first sub task, depending on the complexity and dimensions of the given data, a suitable clustering algorithm will be chosen.
+For the second sub-task, features of the datasets will be standardized. As LeCun concludes in [3], networks
+can learn better and faster if the inputs are centered around zero with equalized covariance. Another consideration for sub-tasks
+two and three is using ensemble of auto encoders. Since the optimization of the randomly initialized weights is 
+difficult [4], we can have multiple auto encoders in our model to mitigate the effects of random weight initialization.
+For the last sub-task, since we will be using softmax as our activation function, the targets of our datasets will be 
+converted to one hot coded versions.\par
+
+The three datasets chosen to be clustered in this study are Modified NIST, Human Activity Recognition Using Smartphones (HAR) 
+and High Time Resolution Universe Survey 2 (HTRU2).\par
+
+MNIST is a image dataset of hand written digits. It is a modified version of the NIST dataset collected from Census Bureau employees and high-school
+students and processed by LeCun et.al..The original NIST set was normalized, so that each sample would be centered
+according to the weights of it's pixels in a 28x28 box. Images were also converted to grey-scale and shuffled to make it
+easy to use in machine learning applications [5]. The dataset consists of 60.000 training images and 10.000 test images. Since each
+sample is represented as a 28x28 pixel binary image, it can be said that samples have 784 features. MNIST dataset is frequently
+used in machine learning research[--], which makes it easier for researchers to compare their models and solutions to the others
+in the field.\newpage 
+
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=2.5in]{images/cor_heat_mnist.png}
+\caption{Corraletion heatmap of MNIST features.}
+\label{fig_mnist}
+\end{figure}
+
+HAR is a dataset of multiple classes of human activities. It was created by recording different classes of activities of 30 volunteers
+by using the accelerometer and the gyroscope in a smartphone. These sensors were used to record the linear acceleration and angular velocity
+on three axes at 50 Hz. Volunteers were also recorded by a camera for the labeling of the activities(walking, walking upstairs, walking downstairs, sitting, standing, laying)[7]. The dataset consists of 7352
+training samples and 2947 test samples. Each sample has 561 features which are- extracted- estimated from the recorded accelerometer and gyroscope signals.These features are normalized, scaled and shifted to be within [-1,1].  Subject id labels for the features and mentioned raw accelerometer and gyroscope signals are also provided with the dataset.
+Dimensions of the subject ids are the same with their training and testing parts. On the other hand, the raw signals are seperated into nine different files grouped under three axes, which are body acceleration (X,Y,Z), body gyroscope (X,Y,Z) and total acceleratin (X,Y,Z).
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=2.5in]{images/cor_heat_har.png}
+  \caption{Corraletion heatmap of HAR features.}
+  \label{fig_har}
+  \end{figure}
+  \par
+  
+  Our last dataset HTRU2 was obtained by Bates[] using ANNs to first filter out the bad candidates,then manually inspecting the outputs of the ANN.Each sample of HTRU2 is a set of features extracted from the data acquired by large radio telescopes during High Time Resolution Universe Survey. HTRU2 has 8 features and consists of 17,898 total samples. Only 1,639 of them are positive pulsar samples and the 16,259 of them are negative samples. The first four features are simple statistics of the pulsar profiles and rest of the features were obtained from DM-SNR curve [].These compact features were obtained from 90.000 labeled pulsar candidates by using Pulsar Feature Lab [].
+
+  \begin{figure}[!ht]
+    \centering
+    \includegraphics[width=2.5in]{images/cor_heat_htru.png}
+    \caption{Corraletion heatmap of htru features.}
+    \label{fig_htru}
+    \end{figure}
+    \par
+
+\section{Experiments}
+
+In the experiments the implementation of the tasks and data analysis will be done using python. In the imlementation of the traditional clustering algorithms, sckit-learn library will be used because of its easy to use nature and rich functions. For the rest of the tasks, tensorflow and keras libraries will be used to implement auto encoders, Since tensorflow converts the python code into C code in runtime, it is fast and it can run on GPUs, making it one of the best neural network library. Finally, the data analysis and plotting will be done using matplotlib and seaborn libraries.
+
+\subsection{Clustering Algorithms}
+In the core part of the clustering experiments, k-Means and DBSCAN algorithms will be used. These algorithms will be first compared to each other, then their results will be analysed, evaluated and recorded for future comparisons. If there is enough time to deviate from the core path,agglomerative clustering algorithm will also be used and these clustering algorithms will be tested again after applying dimensionality reduction methods like PCA/kernel PCA, LDA to the datasets. Otherwise, the experiments will continue with the auto encoders.  
 
 % Note that the IEEE typically puts floats only at the top, even when this
 % results in a large percentage of a column being occupied by floats.
@@ -522,17 +560,17 @@ The conclusion goes here.
 % \hfil is used as a separator to get equal spacing.
 % Watch out that the combined width of all the subfigures on a 
 % line do not exceed the text width or a line break will occur.
-%
-%\begin{figure*}[!t]
-%\centering
-%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
-%\label{fig_first_case}}
-%\hfil
-%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
-%\label{fig_second_case}}
-%\caption{Simulation results for the network.}
-%\label{fig_sim}
-%\end{figure*}
+
+% \begin{figure*}[!t]
+% \centering
+% \subfloat[Case I]{\includegraphics[width=2.5in]{box}%
+% \label{fig_first_case}}
+% \hfil
+% \subfloat[Case II]{\includegraphics[width=2.5in]{box}%
+% \label{fig_second_case}}
+% \caption{Simulation results for the network.}
+% \label{fig_sim}
+% \end{figure*}
 %
 % Note that often IEEE papers with subfigures do not employ subfigure
 % captions (using the optional argument to \subfloat[]), but instead will
@@ -647,20 +685,10 @@ The authors would like to thank...
 % http://mirror.ctan.org/biblio/bibtex/contrib/doc/
 % The IEEEtran BibTeX style support page is at:
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
-% argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
+\bibliographystyle{IEEEtran}
+
+\bibliography{IEEEabrv,../bib/paper}
 %
-% <OR> manually copy in the resultant .bbl file
-% set second argument of \begin to the number of references
-% (used to reserve space for the reference number labels box)
-\begin{thebibliography}{1}
-
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-
-\end{thebibliography}
 
 % biography section
 % 

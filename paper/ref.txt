@@ -63,3 +63,21 @@
   year={1998},
   publisher={Taipei, Taiwan}
 }
+@article{bates2012high,
+  title={The High Time Resolution Universe Pulsar Survey—VI. An artificial neural network and timing of 75 pulsars},
+  author={Bates, SD and Bailes, M and Barsdell, BR and Bhat, NDR and Burgay, M and Burke-Spolaor, S and Champion, DJ and Coster, P and D'Amico, Nicolo' and Jameson, A and others},
+  journal={Monthly Notices of the Royal Astronomical Society},
+  volume={427},
+  number={2},
+  pages={1052--1065},
+  year={2012},
+  publisher={Oxford University Press}
+}
+@article{Lyon2015,
+author = "Robert Lyon",
+title = "{Pulsar Feature Lab}",
+year = "2015",
+month = "9",
+url = "https://figshare.com/articles/Pulsar_Feature_Lab/1536472",
+doi = "10.6084/m9.figshare.1536472.v1"
+}

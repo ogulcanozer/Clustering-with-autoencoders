@@ -4,6 +4,7 @@
 
 ##************************
 import tensorflow as tf
+from tensorflow.examples.tutorials.mnist import input_data
 import pandas as pd
 import numpy as np
 import os
@@ -15,18 +16,25 @@ path = os.path.abspath(os.path.join(os.path.dirname(__file__),'..','data'))
 #-------------------------------------------------------------------------------
 # Functions
 #-------------------------------------------------------------------------------
-n
+
 #-------------------------------------------------------------------------------
 # Main program.
 #-------------------------------------------------------------------------------
 
 #Read and seperate the diabetes dataset.
-data = pd.read_csv(os.path.join(path,'dataset_diabetes\diabetic_data.csv'),
-sep=',',error_bad_lines=False, warn_bad_lines=False)
-target = pd.DataFrame(data['readmitted'])
-data.drop(['readmitted'], axis = 1, inplace = True)
-print(data.head())
-print(data.describe())
+
+mnist = input_data.read_data_sets(os.path.join(path,'mnist'), one_hot=True)
+X_train = mnist.train.images
+y_train = mnist.train.labels
+x_test = mnist.test.images
+y_test = mnist.test.labels
+df = pd.DataFrame(x_test)
+print(df.head)
+corr = df.corr()
+sns.heatmap(corr,cmap="YlGnBu")
+plt.show()
+
+
 
 print('-----------------------------------------------------------------------')
 
@@ -36,9 +44,12 @@ data1 = pd.read_csv(os.path.join(path,'UCI HAR Dataset','train',
 header=None)
 target1 = pd.read_csv(os.path.join(path,'UCI HAR Dataset','train',
 'y_train.txt'),sep=',',error_bad_lines=False, warn_bad_lines=False)
-data1['labels'] = target1 
+#data1['labels'] = target1 
 print(data1.head())
 print(data1.describe())
+corr1 = data1.corr()
+sns.heatmap(corr1,cmap="YlGnBu")
+plt.show()
 
 
 print('-----------------------------------------------------------------------')
@@ -47,21 +58,25 @@ print('-----------------------------------------------------------------------')
 data2 = pd.read_csv(os.path.join(path,'HTRU2\HTRU_2.csv'),
 sep=',',error_bad_lines=False, warn_bad_lines=False,header=None)
 target2 = pd.DataFrame(data2[data2.columns[8]])
-#data2.drop(data2.columns[8], axis = 1, inplace = True)
+data2.drop(data2.columns[8], axis = 1, inplace = True)
+data2.rename(columns=lambda x: str(x),inplace = True)
 print(data2.head())
 print(data2.describe())
-data2.rename(columns=lambda x: str(x),inplace = True)
-
-l = list(data2)
-d, axes = plt.subplots(2, 4)
-d.set_size_inches(20.5, 10.5)
-
-for i in range(0,2):
-    for j in range(0,4):
-        sns.boxplot(data=data2,
-                      x='8',
-                      y=l[(i*2)+j],ax=axes[i][j])
+corr2 = data2.corr()
+sns.heatmap(corr2,cmap="YlGnBu")
 plt.show()
+
+
+# l = list(data2)
+# d, axes = plt.subplots(2, 4)
+# d.set_size_inches(20.5, 10.5)
+
+# for i in range(0,2):
+#     for j in range(0,4):
+#         sns.boxplot(data=data2,
+#                       x='8',
+#                       y=l[(i*2)+j],ax=axes[i][j])
+# plt.show()
 
 #************ FOR TRAINING **************#
 # df_dummies = pd.get_dummies(data)
