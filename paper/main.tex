@@ -47,13 +47,9 @@
 % The testflow support page is at:
 % http://www.michaelshell.org/tex/testflow/
 
-
-
-\documentclass[journal]{IEEEtran}
-%
 % If IEEEtran.cls has not been installed into the LaTeX system files,
 % manually specify the path to it like:
-% \documentclass[journal]{../sty/IEEEtran}
+\documentclass[journal]{IEEEtran}
 
 
 
@@ -88,7 +84,7 @@
 
 % *** CITATION PACKAGES ***
 %
-%\usepackage{cite}
+\usepackage{cite}
 % cite.sty was written by Donald Arseneau
 % V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
 % \cite{} output to follow that of the IEEE. Loading the cite package will
@@ -111,6 +107,7 @@
 
 % *** GRAPHICS RELATED PACKAGES ***
 %
+
 \ifCLASSINFOpdf
   \usepackage[pdftex]{graphicx}
   \graphicspath{ {./images/} }
@@ -144,10 +141,12 @@
 
 
 
-
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{tikz}
 % *** MATH PACKAGES ***
 %
-%\usepackage{amsmath}
+\usepackage{amsmath}
 % A popular package from the American Mathematical Society that provides
 % many useful and powerful commands for dealing with mathematics.
 %
@@ -165,7 +164,7 @@
 
 % *** SPECIALIZED LIST PACKAGES ***
 %
-%\usepackage{algorithmic}
+\usepackage{algorithmic}
 % algorithmic.sty was written by Peter Williams and Rogerio Brito.
 % This package provides an algorithmic environment fo describing algorithms.
 % You can use the algorithmic environment in-text or within a figure
@@ -185,7 +184,7 @@
 
 % *** ALIGNMENT PACKAGES ***
 %
-%\usepackage{array}
+\usepackage{array}
 % Frank Mittelbach's and David Carlisle's array.sty patches and improves
 % the standard LaTeX2e array and tabular environments to provide better
 % appearance and additional user controls. As the default LaTeX2e table
@@ -205,11 +204,11 @@
 
 
 % *** SUBFIGURE PACKAGES ***
-%\ifCLASSOPTIONcompsoc
-%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
-%\else
-%  \usepackage[caption=false,font=footnotesize]{subfig}
-%\fi
+\ifCLASSOPTIONcompsoc
+  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+\else
+  \usepackage[caption=false,font=footnotesize]{subfig}
+\fi
 % subfig.sty, written by Steven Douglas Cochran, is the modern replacement
 % for subfigure.sty, the latter of which is no longer maintained and is
 % incompatible with some LaTeX packages including fixltx2e. However,
@@ -232,7 +231,7 @@
 
 % *** FLOAT PACKAGES ***
 %
-%\usepackage{fixltx2e}
+\usepackage{fixltx2e}
 % fixltx2e, the successor to the earlier fix2col.sty, was written by
 % Frank Mittelbach and David Carlisle. This package corrects a few problems
 % in the LaTeX2e kernel, the most notable of which is that in current
@@ -320,7 +319,7 @@
 
 % *** PDF, URL AND HYPERLINK PACKAGES ***
 %
-%\usepackage{url}
+\usepackage{url}
 % url.sty was written by Donald Arseneau. It provides better support for
 % handling and breaking URLs. url.sty is already installed on most LaTeX
 % systems. The latest version and documentation can be obtained at:
@@ -342,6 +341,7 @@
 
 
 \begin{document}
+
 %
 % paper title
 % Titles are generally capitalized except for words such as a, an, and, as,
@@ -421,11 +421,10 @@
 The traditional unsupervised machine learning algorithms like k-Means, PCA and other
 linear factor models are proven to be very useful for many important applications.
 But in this day and age we are able to collect very complex, high dimensional data
-and these simple but efficient algorithms are failing to learn or represent it [1]. In this
-work we are going to use auto encoders to reduce the dimensions of three different datasets
-and try to extract good features using different activation functions. Then finally, 
-we will cluster the data by using the extracted features and compare the results with 
-the traditional techniques.   
+and these simple but efficient algorithms are failing to learn or represent it\cite[p. 151]{goodfellow2016deep} In this
+work we are going to use autoencoders to reduce the dimensions of three different datasets
+and try to extract good features with and without softmax activation function. Then finally, 
+we will cluster the data by using the extracted features and compare the results. 
 
 \end{abstract}
 
@@ -463,16 +462,16 @@ and relations. This sub section of machine learning is useful to describe and un
 also helps us understand the properties of future data samples. Right now we are collecting data much faster than we can process it.
 And most of the time the data we acquire is unlabeled, and these huge amounts of data are complex, noisy
 and it might include unnecessary information.\par There are different ways to reduce the complexity of a given data and learn good 
-features from it. In this work, we will look at auto encoders, one of those procedures used to learn features from a given data.
-Auto encoders are a part of representational learning, which can be trained with or without labels.
+features from it. In this work, we will look at autoencoders, one of those procedures used to learn features from a given data.
+Autoencoders are a part of representational learning, which can be trained with or without labels.
 They play a key role in deep learning applications. They are used in dimensionality reduction and feature 
 extraction, and together with deep learning they gained a lot of traction after Hinton proposed a method to train 
-deep belief networks one layer at a time [2].Another addition to the auto encoder will be the softmax activation function.
-Since softmax gives us the probability distribution over-the classes of our data- the output vector [3], we can use the output of our
-encoder to train a clustering algorithm. The motivation for using auto encoders is, in what they do they are
+deep belief networks one layer at a time \cite{hinton2006fast}.Another addition to the autoencoder will be the softmax activation function.
+Since softmax gives us the probability distribution over-the classes of our data- the output vector \cite[pp. 178-181]{goodfellow2016deep}, we can use the output of our
+encoder for cluster assignment. The motivation for using autoencoders is, in what they do they are
 very similar to traditional feature selection algorithms, but they are also capable of learning good features from
-complex and high dimensional data. This aspect of auto encoders and unsupervised learning in general is important. 
-As LeCun states in [3], people are not paying attention to unsupervised learning because of the success of the supervised learning
+complex and high dimensional data. This aspect of autoencoders and unsupervised learning in general is important. 
+As LeCun states in \cite{lecun2015deep}, people are not paying attention to unsupervised learning because of the success of the supervised learning
 in recent years. But it will be far more important in the future because of how living beings perceive and learn, they do not
 need labels to recognize the world around them.\par In this paper we are going to look at previous work (Section II),
 look at different methods and present their results to show how they compare. In Section III, we are going to present 
@@ -481,21 +480,69 @@ give detailed information about them. The planned experiments and analyses for t
 Evaluation methods that are going to be used after the experiments will be presented in Section V.
 
 \section{Background}
+Clustering is an important part of data analysis, that is used to naturally group the samples in order to extract information or make decisions\cite{jain1999data}.
+Autoencoders were discovered in 1985 and presented in\cite{rumelhart1985learning}. As the technology and our computational power improved immensely in the last decade, they became more and more feasible. After Hinton's solution\cite{hinton2006fast} these simple network models became very popular, now they are used in the state of the art machine learning models, breaking records and in some tasks performing better than humans\cite{schmidhuber2015deep}. But most of the success and interest to the autoencoders can be attributed to the studies on supervised learning.\par
+In this study, we will be looking at the other side and see how autoencoders perform compared to some of the well known traditional models. These algorithms will be k-Means\cite{macqueen1967some} and DBSCAN\cite{ester1996density}.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=2.5in]{images/kM_DBSCAN.png}
+  \caption{Clusters created by k-Means and DBSCAN.
+  First Column : k-Means, Second Column : DBSCAN \newline
+  Adapted from CE888 lab6 results.
+  }
+  \label{fig_cluster}
+  \end{figure}
+
+As it can be seen in Figure 1, k-Means algorithm can not cluster non-linear data. Results in \cite{xie2016unsupervised} also confirm that, but it also shows us that the k-Means can be significantly improved if the dimensions of the data is reduced before the clustering procedure. In \cite{salakhutdinov2007learning} a multilayer network is used to map high dimensional, non-linear features to low-dimensional space which is fine-tuned to work with KNN. They achieved 1.01\% error rate using 7 nearest neighbours on MNIST dataset.\par
+
+The study \cite{hinton2006reducing} gives a lot of insight on autoencoders and dimensionality reduction. They introduce the pre-training notion, which involves an effective way of initializing good weights and training the network layer by layer. Then they suggest fine-tuning the deep network as a whole. This practice can also be seen in \cite{vincent2010stacked} and \cite{xie2016unsupervised}, these studies also suggest pre-training. On the other hand, \cite{ma2015deep} concludes that the pre-training procedure does not improve the accuracy. Their experiments show that the pre-training, over multiple DNNs and 15 different datasets, on average reduce the accuracy. Another study\cite{poultney2007efficient} learns overcomplete representations of features for data reconstructions. It is shown in their results that this sparse, energy based autoencoder with linear layers can reproduce the MINST dataset with 0.7\% error, while not requiring any preprocessing.\cite{le2011building} also follows a similar approach, in which a deep sparse network trained in unsupervised fashion to recognize faces, humans and objects.
+Finally, the last study we looked at implemented and compared different models (Figure 2). As a result \cite{coates2011analysis} states that the best result obtained came from k-Means clustering.
+
+\begin{table}[!ht]
+  %% increase table row spacing, adjust to taste
+  \renewcommand{\arraystretch}{1.3}
+  % if using array.sty, it might be a good idea to tweak the value of
+  % \extrarowheight as needed to properly center the text within the cells
+  \caption{Test recognition accuracy (and error) for
+  NORB dataset.\newline
+  Adapted from : \cite{coates2011analysis} }
+  \label{tab_coates_res}
+  \centering
+  %% Some packages, such as MDW tools, offer better commands for making tables
+  %% than the plain LaTeX2e tabular which is used here.
+  \begin{tabular}{|c||c|}
+  \hline
+  Algorithm  &     Accuracy (error) \\
+  \hline
+  \hline
+  Conv. Neural Network &    93.4\% (6.6\%)\\
+  Deep Boltzmann Machine &      92.8\ (7.2\%)\\
+  Deep Belief Network&    95.0\% (5.0\%)\\
+  Deep neural network &    97.13\% (2.87\%)\\
+  \hline
+  Sparse auto-encoder &    96.9\% (3.\%)\\
+  Sparse RBM &    96.2\ (3.8\%)\\
+  K-means clustering ( 4000 features) &   97.21\% (2.79\%)\\
+  \hline
+  \end{tabular}
+  \end{table}
+
 
 \section{Methodology}
 Our main goal in this study is to correctly cluster data using unsupervised machine learning techniques.
 To accomplish this task we will go through three different subtasks. First, we will use traditional clustering algorithms 
-to see how they perform on our datasets. In the second part, we will use auto encoders to learn good features
-from our datasets, then we will pass the- extracted features- outputs of the auto encoder to a clustering algorithm to see the difference
-in their performance. Finally, we will change the output activation function of the auto encoder to the softmax 
+to see how they perform on our datasets. In the second part, we will use autoencoders to learn good features
+from our datasets, then we will pass the- extracted features- outputs of the autoencoder to a clustering algorithm to see the difference
+in their performance. Finally, we will change the output activation function of the autoencoder to the softmax 
 activation function, which will give us the probability distribution of the output vector. Then we will use
 the maximum weighted class as our cluster assignment.\par
 Before starting the experiments the datasets will be examined and processed appropriately for each sub-task.
 For the first sub task, depending on the complexity and dimensions of the given data, a suitable clustering algorithm will be chosen.
-For the second sub-task, features of the datasets will be standardized. As LeCun concludes in [3], networks
+For the second sub-task, features of the datasets will be standardized. As LeCun concludes in \cite{lecun2012efficient}, networks
 can learn better and faster if the inputs are centered around zero with equalized covariance. Another consideration for sub-tasks
-two and three is using ensemble of auto encoders. Since the optimization of the randomly initialized weights is 
-difficult [4], we can have multiple auto encoders in our model to mitigate the effects of random weight initialization.
+two and three is using ensemble of autoencoders. Since the optimization of the randomly initialized weights is 
+difficult \cite{hinton2006reducing}, we can have multiple autoencoders in our model to mitigate the effects of random weight initialization.
 For the last sub-task, since we will be using softmax as our activation function, the targets of our datasets will be 
 converted to one hot coded versions.\par
 
@@ -505,11 +552,10 @@ and High Time Resolution Universe Survey 2 (HTRU2).\par
 MNIST is a image dataset of hand written digits. It is a modified version of the NIST dataset collected from Census Bureau employees and high-school
 students and processed by LeCun et.al..The original NIST set was normalized, so that each sample would be centered
 according to the weights of it's pixels in a 28x28 box. Images were also converted to grey-scale and shuffled to make it
-easy to use in machine learning applications [5]. The dataset consists of 60.000 training images and 10.000 test images. Since each
+easy to use in machine learning applications \cite{lecun1998gradient}. The dataset consists of 60.000 training images and 10.000 test images. Since each
 sample is represented as a 28x28 pixel binary image, it can be said that samples have 784 features. MNIST dataset is frequently
 used in machine learning research[--], which makes it easier for researchers to compare their models and solutions to the others
-in the field.\newpage 
-
+in the field.
 
 \begin{figure}[!ht]
 \centering
@@ -520,7 +566,7 @@ in the field.\newpage
 
 HAR is a dataset of multiple classes of human activities. It was created by recording different classes of activities of 30 volunteers
 by using the accelerometer and the gyroscope in a smartphone. These sensors were used to record the linear acceleration and angular velocity
-on three axes at 50 Hz. Volunteers were also recorded by a camera for the labeling of the activities(walking, walking upstairs, walking downstairs, sitting, standing, laying)[7]. The dataset consists of 7352
+on three axes at 50 Hz. Volunteers were also recorded by a camera for the labeling of the activities(walking, walking upstairs, walking downstairs, sitting, standing, laying)\cite{anguita2013public}. The dataset consists of 7352
 training samples and 2947 test samples. Each sample has 561 features which are- extracted- estimated from the recorded accelerometer and gyroscope signals.These features are normalized, scaled and shifted to be within [-1,1].  Subject id labels for the features and mentioned raw accelerometer and gyroscope signals are also provided with the dataset.
 Dimensions of the subject ids are the same with their training and testing parts. On the other hand, the raw signals are seperated into nine different files grouped under three axes, which are body acceleration (X,Y,Z), body gyroscope (X,Y,Z) and total acceleratin (X,Y,Z).
 
@@ -532,7 +578,7 @@ Dimensions of the subject ids are the same with their training and testing parts
   \end{figure}
   \par
   
-  Our last dataset HTRU2 was obtained by Bates[] using ANNs to first filter out the bad candidates,then manually inspecting the outputs of the ANN.Each sample of HTRU2 is a set of features extracted from the data acquired by large radio telescopes during High Time Resolution Universe Survey. HTRU2 has 8 features and consists of 17,898 total samples. Only 1,639 of them are positive pulsar samples and the 16,259 of them are negative samples. The first four features are simple statistics of the pulsar profiles and rest of the features were obtained from DM-SNR curve [].These compact features were obtained from 90.000 labeled pulsar candidates by using Pulsar Feature Lab [].
+  Our last dataset HTRU2 was obtained by Bates\cite{bates2012high} using ANNs to first filter out the bad candidates,then manually inspecting the outputs of the ANN.Each sample of HTRU2 is a set of features extracted from the data acquired by large radio telescopes during High Time Resolution Universe Survey. HTRU2 has 8 features and consists of 17,898 total samples. Only 1,639 of them are positive pulsar samples and the 16,259 of them are negative samples. The first four features are simple statistics of the pulsar profiles and rest of the features were obtained from DM-SNR curve\cite{keith2010high}.These compact features were obtained from 90.000 labeled pulsar candidates by using Pulsar Feature Lab \cite{Lyon2015}.
 
   \begin{figure}[!ht]
     \centering
@@ -541,13 +587,81 @@ Dimensions of the subject ids are the same with their training and testing parts
     \label{fig_htru}
     \end{figure}
     \par
-
+  
+  \begin{table}[!ht]
+  %% increase table row spacing, adjust to taste
+  \renewcommand{\arraystretch}{1.3}
+  % if using array.sty, it might be a good idea to tweak the value of
+  % \extrarowheight as needed to properly center the text within the cells
+  \caption{Dataset statistics.}
+  \label{tab_datasets}
+  \centering
+  %% Some packages, such as MDW tools, offer better commands for making tables
+  %% than the plain LaTeX2e tabular which is used here.
+  \begin{tabular}{|c||c|c|c|}
+  \hline
+  Datasets &    Data Points &  Features &  Classes \\
+  \hline
+  \hline
+  MNIST &    70.000 &   784 &                 10 \\
+  \hline
+  HAR &       10.299 &   561 &                 6 \\
+  \hline
+  HTRU2 &    17,898 &   8 &                  2 \\
+  \hline
+  \end{tabular}
+  \end{table}
 \section{Experiments}
 
-In the experiments the implementation of the tasks and data analysis will be done using python. In the imlementation of the traditional clustering algorithms, sckit-learn library will be used because of its easy to use nature and rich functions. For the rest of the tasks, tensorflow and keras libraries will be used to implement auto encoders, Since tensorflow converts the python code into C code in runtime, it is fast and it can run on GPUs, making it one of the best neural network library. Finally, the data analysis and plotting will be done using matplotlib and seaborn libraries.
+In the experiments the implementation of the tasks and data analysis will be done using python. In the imlementation of the traditional clustering algorithms, sckit-learn library will be used because of its easy to use nature and rich functions. For the rest of the tasks, tensorflow and keras libraries will be used to implement autoencoders, since tensorflow converts the python code into C code in runtime, it is fast and it can run on GPUs, making it one of the best neural network library. Finally, the data analysis and plotting will be done using matplotlib and seaborn libraries.
 
 \subsection{Clustering Algorithms}
-In the core part of the clustering experiments, k-Means and DBSCAN algorithms will be used. These algorithms will be first compared to each other, then their results will be analysed, evaluated and recorded for future comparisons. If there is enough time to deviate from the core path,agglomerative clustering algorithm will also be used and these clustering algorithms will be tested again after applying dimensionality reduction methods like PCA/kernel PCA, LDA to the datasets. Otherwise, the experiments will continue with the auto encoders.  
+In the core part of the clustering experiments, k-Means and DBSCAN algorithms will be used. These algorithms will be first compared to each other, then their results will be analysed, evaluated and recorded for future comparisons. If there is enough time to deviate from the core path, agglomerative clustering algorithm will also be used and these clustering algorithms will be tested again after applying dimensionality reduction methods like PCA/kernel PCA, LDA to the datasets. Given enough time, we will try these dimension reduction algorithms to confirm\cite{baldi1989neural}, in which it is concluded that the linear autoencoders with squared loss functions behave like PCAs. Otherwise, the experiments will continue with the autoencoders.  
+
+\subsection{AutoEncoder and Softmax}
+Rest of the tasks share a similar model. Both of them will be using autoencoders to extract features. Implementation priority will be given to the main parts. First, an autoencoder will be trained and optimized to learn good features, then the output of these features will be passed to the mentioned clustering algorithms in the first task. Then, in the second part the output activations will be swapped with softmax activation function for clustering.\par
+After implementing the minimum requirements, if there is enough time, various additional experiments will be performed. First, we will use linear autoencoder with one hidden layer for clustering to compare the performance to clustering with PCA. Then, we will perform the same experiment for non-linear autoencoder and kernel PCA. After the comparisons, we will try methods like Dropout\cite{srivastava2014dropout} and denoising, to prevent one to one mapping and promote generalization\cite{vincent2010stacked}. Finally we will experiment with ensemble of autoencoders for more robust results. 
+
+\subsection{Similar Work}
+
+In the study\cite{hinton2006reducing}, autoencoders are compared to non-linear PCA and other dimensionality reduction methods. And it is stated that the autoencoders out perform PCA, logistic PCA, latent semantic analysis (LSA) and locar linear embedding techniques. The results of the reconstructions of MNIST digits from the study can be seen below.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=2.5in]{images/hinton_mnist.png}
+  \caption{Top to bottom: Random test images, autoencoder reconstruction, logistic PCA reconstruction and standart PCA reconstruction.\newline Adapted from : \cite{hinton2006reducing}}
+  \label{fig_hinton_mnist}
+  \end{figure}
+
+  \par
+
+Another study \cite{xie2016unsupervised} uses autoencoders with dropout to extract good features for clustering.
+In their model, softmax is applied to the resulting output vector from the autoencoder and then they optimize the network by comparing the soft assignment to the target clusters. Their results on MNIST can be seen below. 
+
+\begin{table}[!ht]
+  %% increase table row spacing, adjust to taste
+  \renewcommand{\arraystretch}{1.3}
+  % if using array.sty, it might be a good idea to tweak the value of
+  % \extrarowheight as needed to properly center the text within the cells
+  \caption{Clustering accuracy on different subsamples of MNIST\newline
+  Adapted from: \cite{xie2016unsupervised}}
+  \label{tab_res_clus}
+  \centering
+  %% Some packages, such as MDW tools, offer better commands for making tables
+  %% than the plain LaTeX2e tabular which is used here.
+  \begin{tabular}{|c||c|c|c|c|c|c|}
+  \hline
+   Method  &    0.1 &  0.3 &  0.5 & 0.7 &  0.9  \\
+  \hline
+  \hline
+  k-Means &    47.14\% &   49.93\% &     53.65\%   &    54.16\%  &   54.39\% \\
+  \hline
+  AE + k-Means & 66.82\% &   74.91\% &     77.93\%   &    80.04\%  &   81.31\% \\
+  \hline
+  DEC(proposed) &  70.10\% &   80.92\% &     82.68\%   &    84.69\%  &   85.41\% \\
+  \hline
+  \end{tabular}
+  \end{table}
 
 % Note that the IEEE typically puts floats only at the top, even when this
 % results in a large percentage of a column being occupied by floats.
@@ -561,17 +675,7 @@ In the core part of the clustering experiments, k-Means and DBSCAN algorithms wi
 % Watch out that the combined width of all the subfigures on a 
 % line do not exceed the text width or a line break will occur.
 
-% \begin{figure*}[!t]
-% \centering
-% \subfloat[Case I]{\includegraphics[width=2.5in]{box}%
-% \label{fig_first_case}}
-% \hfil
-% \subfloat[Case II]{\includegraphics[width=2.5in]{box}%
-% \label{fig_second_case}}
-% \caption{Simulation results for the network.}
-% \label{fig_sim}
-% \end{figure*}
-%
+
 % Note that often IEEE papers with subfigures do not employ subfigure
 % captions (using the optional argument to \subfloat[]), but instead will
 % reference/describe all of them (a), (b), etc., within the main caption.
@@ -590,43 +694,42 @@ In the core part of the clustering experiments, k-Means and DBSCAN algorithms wi
 % the IEEE normally uses this smaller font for tables.
 % The \label must come after \caption as always.
 %
-%\begin{table}[!t]
-%% increase table row spacing, adjust to taste
-%\renewcommand{\arraystretch}{1.3}
-% if using array.sty, it might be a good idea to tweak the value of
-% \extrarowheight as needed to properly center the text within the cells
-%\caption{An Example of a Table}
-%\label{table_example}
-%\centering
-%% Some packages, such as MDW tools, offer better commands for making tables
-%% than the plain LaTeX2e tabular which is used here.
-%\begin{tabular}{|c||c|}
-%\hline
-%One & Two\\
-%\hline
-%Three & Four\\
-%\hline
-%\end{tabular}
-%\end{table}
-
-
-% Note that the IEEE does not put floats in the very first column
-% - or typically anywhere on the first page for that matter. Also,
-% in-text middle ("here") positioning is typically not used, but it
-% is allowed and encouraged for Computer Society conferences (but
-% not Computer Society journals). Most IEEE journals/conferences use
-% top floats exclusively. 
-% Note that, LaTeX2e, unlike IEEE journals/conferences, places
-% footnotes above bottom floats. This can be corrected via the
-% \fnbelowfloat command of the stfloats package.
+% \begin{table}[!t]
+% %% increase table row spacing, adjust to taste
+% \renewcommand{\arraystretch}{1.3}
+% % if using array.sty, it might be a good idea to tweak the value of
+% % \extrarowheight as needed to properly center the text within the cells
+% \caption{An Example of a Table}
+% \label{table_example}
+% \centering
+% %% Some packages, such as MDW tools, offer better commands for making tables
+% %% than the plain LaTeX2e tabular which is used here.
+% \begin{tabular}{|c||c|}
+% \hline
+% One & Two\\
+% \hline
+% Three & Four\\
+% \hline
+% \end{tabular}
+% \end{table}
 
 
 
+
+\section{Discussion}
+
+At the end of the experiments, the evaluation of each model's cluster assignments will be calculated by using the V-measure. Since it takes into account both completeness and homogenity of the clusters, it will be our choice of evaluation\cite{rosenberg2007v}. On the other hand we will also use the Fowlkes-Mallows score. Because it allows us to compare the performance of our three different methods\cite{fowlkes1983method}. Also as an addition, we plan to evaluate the contingency matrix of each model, then perform McNemar's test between the models to see the significance of their difference.\par
+
+This study will improve our understanding of autoencoders and it will give us a chance to observe how they perform compared to the traditional methods. It is assumed that the task of optimizing and fine tuning the encoders will be difficult and time consuming. Another benefit will be the comparison of the softmax clustering to the rest of the methods. Downside of this study will be understanding why the autoencoder does what it does, since it is a black box model. Luckily this is out of the scope of this study. 
+
+In a broader perspective, these experiments will improve our understanding of clustering, data manipulation and unsupervised learning in general. Understanding the data, its complexity and dimensions are not trivial yet very important. Even though Machine Learning and Data Science fields can provide many models and tools, it is difficult to get good results if we are not familiar with the data/problem we are dealing with.\par
 
 \section{Conclusion}
-The conclusion goes here.
 
+We briefly explained the purpose and the tasks of the project. While going through the literature, importance of unsupervised learning was understood. Also it was realized that the field needs more attention. Later on, we described our model and the datasets we are going to use. Then the experiments we are going to perform were described with references to the similar work.In the end the evaluation methods that we will use were explained together with what we expect to gain at the end of this work.\par
 
+We believe that this work will provide a lot of insights and practical experiences about clustering, autoencoders and data analysis. With the addition of improving our data presentation skills, such as drawing graphs and plots through software. This will be a good study to put what we learned in theory to practice, do the experiments for ourselves and compare our results to the ones we found. 
+\newpage
 
 
 
@@ -646,29 +749,15 @@ The conclusion goes here.
 
 
 \appendices
-\section{Proof of the First Zonklar Equation}
-Appendix one text goes here.
+
+\section{}
+
+See page 6 for the GANTT chart of the assignment. 
 
 % you can choose not to have a title for an appendix
 % if you want by leaving the argument blank
-\section{}
-Appendix two text goes here.
 
-
-% use section* for acknowledgment
-\section*{Acknowledgment}
-
-
-The authors would like to thank...
-
-
-% Can use something like this to put references on a page
-% by themselves when using endfloat and the captionsoff option.
-\ifCLASSOPTIONcaptionsoff
-  \newpage
-\fi
-
-
+\newpage
 
 % trigger a \newpage just before the given reference
 % number - used to balance the columns on the last page
@@ -687,9 +776,18 @@ The authors would like to thank...
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
 \bibliographystyle{IEEEtran}
 
-\bibliography{IEEEabrv,../bib/paper}
+\bibliography{refs}
 %
+\newpage
 
+\begin{landscape}
+  \begin{figure}[!h]
+     \centering
+      \includegraphics[width=1.25\textwidth,height=0.90\textheight]{g_chart.png}
+      \caption{Assignment GANTT Chart}
+      \label{fig_g_chart}
+  \end{figure}
+  \end{landscape}
 % biography section
 % 
 % If you have an EPS/PDF photo (graphicx package needed) extra braces are
