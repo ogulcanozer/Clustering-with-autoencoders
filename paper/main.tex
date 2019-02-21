@@ -466,7 +466,7 @@ features from it. In this work, we will look at autoencoders, one of those proce
 Autoencoders are a part of representational learning, which can be trained with or without labels.
 They play a key role in deep learning applications. They are used in dimensionality reduction and feature 
 extraction, and together with deep learning they gained a lot of traction after Hinton proposed a method to train 
-deep belief networks one layer at a time \cite{hinton2006fast}.Another addition to the autoencoder will be the softmax activation function.
+deep belief networks one layer at a time \cite{hinton2006fast}. Another addition to the autoencoder will be the softmax activation function.
 Since softmax gives us the probability distribution over-the classes of our data- the output vector \cite[pp. 178-181]{goodfellow2016deep}, we can use the output of our
 encoder for cluster assignment. The motivation for using autoencoders is, in what they do they are
 very similar to traditional feature selection algorithms, but they are also capable of learning good features from
@@ -481,8 +481,8 @@ Evaluation methods that are going to be used after the experiments will be prese
 
 \section{Background}
 Clustering is an important part of data analysis, that is used to naturally group the samples in order to extract information or make decisions\cite{jain1999data}.
-Autoencoders were discovered in 1985 and presented in\cite{rumelhart1985learning}. As the technology and our computational power improved immensely in the last decade, they became more and more feasible. After Hinton's solution\cite{hinton2006fast} these simple network models became very popular, now they are used in the state of the art machine learning models, breaking records and in some tasks performing better than humans\cite{schmidhuber2015deep}. But most of the success and interest to the autoencoders can be attributed to the studies on supervised learning.\par
-In this study, we will be looking at the other side and see how autoencoders perform compared to some of the well known traditional models. These algorithms will be k-Means\cite{macqueen1967some} and DBSCAN\cite{ester1996density}.
+Autoencoders were discovered in 1985 and presented in\cite{rumelhart1985learning}. As the technology and our computational power improved immensely in the last decade, they became more and more feasible. After Hinton's solution\cite{hinton2006fast} these simple network models became very popular, now they are used in the state-of-the-art machine learning models, breaking records and in some tasks performing better than humans\cite{schmidhuber2015deep}. But most of the success and interest to the autoencoders can be attributed to the studies on supervised learning.\par
+In this study, we will be looking at the other side and see how autoencoders perform compared to some of the well-known traditional models. These algorithms will be k-Means\cite{macqueen1967some} and DBSCAN\cite{ester1996density}.
 
 \begin{figure}[!ht]
   \centering
@@ -494,7 +494,7 @@ In this study, we will be looking at the other side and see how autoencoders per
   \label{fig_cluster}
   \end{figure}
 
-As it can be seen in Figure 1, k-Means algorithm can not cluster non-linear data. Results in \cite{xie2016unsupervised} also confirm that, but it also shows us that the k-Means can be significantly improved if the dimensions of the data is reduced before the clustering procedure. In \cite{salakhutdinov2007learning} a multilayer network is used to map high dimensional, non-linear features to low-dimensional space which is fine-tuned to work with KNN. They achieved 1.01\% error rate using 7 nearest neighbours on MNIST dataset.\par
+As it can be seen in Figure 1, k-Means algorithm cannot cluster non-linear data. Results in \cite{xie2016unsupervised} also confirm that, but it also shows us that the k-Means can be significantly improved if the dimensions of the data is reduced before the clustering procedure. In \cite{salakhutdinov2007learning} a multilayer network is used to map high dimensional, non-linear features to low-dimensional space which is fine-tuned to work with KNN. They achieved 1.01\% error rate using 7 nearest neighbors on MNIST dataset.\par
 
 The study \cite{hinton2006reducing} gives a lot of insight on autoencoders and dimensionality reduction. They introduce the pre-training notion, which involves an effective way of initializing good weights and training the network layer by layer. Then they suggest fine-tuning the deep network as a whole. This practice can also be seen in \cite{vincent2010stacked} and \cite{xie2016unsupervised}, these studies also suggest pre-training. On the other hand, \cite{ma2015deep} concludes that the pre-training procedure does not improve the accuracy. Their experiments show that the pre-training, over multiple DNNs and 15 different datasets, on average reduce the accuracy. Another study\cite{poultney2007efficient} learns overcomplete representations of features for data reconstructions. It is shown in their results that this sparse, energy based autoencoder with linear layers can reproduce the MINST dataset with 0.7\% error, while not requiring any preprocessing.\cite{le2011building} also follows a similar approach, in which a deep sparse network trained in unsupervised fashion to recognize faces, humans and objects.
 Finally, the last study we looked at implemented and compared different models (Figure 2). As a result \cite{coates2011analysis} states that the best result obtained came from k-Means clustering.
@@ -531,13 +531,13 @@ Finally, the last study we looked at implemented and compared different models (
 
 \section{Methodology}
 Our main goal in this study is to correctly cluster data using unsupervised machine learning techniques.
-To accomplish this task we will go through three different subtasks. First, we will use traditional clustering algorithms 
+To accomplish this task, we will go through three different subtasks. First, we will use traditional clustering algorithms 
 to see how they perform on our datasets. In the second part, we will use autoencoders to learn good features
 from our datasets, then we will pass the- extracted features- outputs of the autoencoder to a clustering algorithm to see the difference
 in their performance. Finally, we will change the output activation function of the autoencoder to the softmax 
 activation function, which will give us the probability distribution of the output vector. Then we will use
 the maximum weighted class as our cluster assignment.\par
-Before starting the experiments the datasets will be examined and processed appropriately for each sub-task.
+Before starting the experiments, the datasets will be examined and processed appropriately for each sub-task.
 For the first sub task, depending on the complexity and dimensions of the given data, a suitable clustering algorithm will be chosen.
 For the second sub-task, features of the datasets will be standardized. As LeCun concludes in \cite{lecun2012efficient}, networks
 can learn better and faster if the inputs are centered around zero with equalized covariance. Another consideration for sub-tasks
@@ -554,7 +554,7 @@ students and processed by LeCun et.al..The original NIST set was normalized, so 
 according to the weights of it's pixels in a 28x28 box. Images were also converted to grey-scale and shuffled to make it
 easy to use in machine learning applications \cite{lecun1998gradient}. The dataset consists of 60.000 training images and 10.000 test images. Since each
 sample is represented as a 28x28 pixel binary image, it can be said that samples have 784 features. MNIST dataset is frequently
-used in machine learning research[--], which makes it easier for researchers to compare their models and solutions to the others
+used in machine learning research, which makes it easier for researchers to compare their models and solutions to the others
 in the field.
 
 \begin{figure}[!ht]
@@ -566,9 +566,9 @@ in the field.
 
 HAR is a dataset of multiple classes of human activities. It was created by recording different classes of activities of 30 volunteers
 by using the accelerometer and the gyroscope in a smartphone. These sensors were used to record the linear acceleration and angular velocity
-on three axes at 50 Hz. Volunteers were also recorded by a camera for the labeling of the activities(walking, walking upstairs, walking downstairs, sitting, standing, laying)\cite{anguita2013public}. The dataset consists of 7352
-training samples and 2947 test samples. Each sample has 561 features which are- extracted- estimated from the recorded accelerometer and gyroscope signals.These features are normalized, scaled and shifted to be within [-1,1].  Subject id labels for the features and mentioned raw accelerometer and gyroscope signals are also provided with the dataset.
-Dimensions of the subject ids are the same with their training and testing parts. On the other hand, the raw signals are seperated into nine different files grouped under three axes, which are body acceleration (X,Y,Z), body gyroscope (X,Y,Z) and total acceleratin (X,Y,Z).
+on three axes at 50 Hz. Volunteers were also recorded by a camera for the labeling of the activities (walking, walking upstairs, walking downstairs, sitting, standing, laying)\cite{anguita2013public}. The dataset consists of 7352
+training samples and 2947 test samples. Each sample has 561 features which are- extracted- estimated from the recorded accelerometer and gyroscope signals. These features are normalized, scaled and shifted to be within [-1,1].  Subject id labels for the features and mentioned raw accelerometer and gyroscope signals are also provided with the dataset.
+Dimensions of the subject ids are the same with their training and testing parts. On the other hand, the raw signals are separated into nine different files grouped under three axes, which are body acceleration (X,Y,Z), body gyroscope (X,Y,Z) and total acceleration (X,Y,Z).
 
 \begin{figure}[!ht]
   \centering
@@ -578,7 +578,7 @@ Dimensions of the subject ids are the same with their training and testing parts
   \end{figure}
   \par
   
-  Our last dataset HTRU2 was obtained by Bates\cite{bates2012high} using ANNs to first filter out the bad candidates,then manually inspecting the outputs of the ANN.Each sample of HTRU2 is a set of features extracted from the data acquired by large radio telescopes during High Time Resolution Universe Survey. HTRU2 has 8 features and consists of 17,898 total samples. Only 1,639 of them are positive pulsar samples and the 16,259 of them are negative samples. The first four features are simple statistics of the pulsar profiles and rest of the features were obtained from DM-SNR curve\cite{keith2010high}.These compact features were obtained from 90.000 labeled pulsar candidates by using Pulsar Feature Lab \cite{Lyon2015}.
+  Our last dataset HTRU2 was obtained by Bates\cite{bates2012high} using ANNs to first filter out the bad candidates, then manually inspecting the outputs of the ANN. Each sample of HTRU2 is a set of features extracted from the data acquired by large radio telescopes during High Time Resolution Universe Survey. HTRU2 has 8 features and consists of 17,898 total samples. Only 1,639 of them are positive pulsar samples and the 16,259 of them are negative samples. The first four features are simple statistics of the pulsar profiles and rest of the features were obtained from DM-SNR curve\cite{keith2010high}.These compact features were obtained from 90.000 labeled pulsar candidates by using Pulsar Feature Lab \cite{Lyon2015}.
 
   \begin{figure}[!ht]
     \centering
@@ -613,23 +613,23 @@ Dimensions of the subject ids are the same with their training and testing parts
   \end{table}
 \section{Experiments}
 
-In the experiments the implementation of the tasks and data analysis will be done using python. In the imlementation of the traditional clustering algorithms, sckit-learn library will be used because of its easy to use nature and rich functions. For the rest of the tasks, tensorflow and keras libraries will be used to implement autoencoders, since tensorflow converts the python code into C code in runtime, it is fast and it can run on GPUs, making it one of the best neural network library. Finally, the data analysis and plotting will be done using matplotlib and seaborn libraries.
+In the experiments the implementation of the tasks and data analysis will be done using python. In the implementation of the traditional clustering algorithms, scikit-learn library will be used because of its easy to use nature and rich functions. For the rest of the tasks, TensorFlow and Keras libraries will be used to implement autoencoders, since TensorFlow converts the python code into C code in runtime, it is fast and it can run on GPUs, making it one of the best neural network library. Finally, the data analysis and plotting will be done using matplotlib and seaborn libraries.
 
 \subsection{Clustering Algorithms}
-In the core part of the clustering experiments, k-Means and DBSCAN algorithms will be used. These algorithms will be first compared to each other, then their results will be analysed, evaluated and recorded for future comparisons. If there is enough time to deviate from the core path, agglomerative clustering algorithm will also be used and these clustering algorithms will be tested again after applying dimensionality reduction methods like PCA/kernel PCA, LDA to the datasets. Given enough time, we will try these dimension reduction algorithms to confirm\cite{baldi1989neural}, in which it is concluded that the linear autoencoders with squared loss functions behave like PCAs. Otherwise, the experiments will continue with the autoencoders.  
+In the core part of the clustering experiments, k-Means and DBSCAN algorithms will be used. These algorithms will be first compared to each other, then their results will be analyzed, evaluated and recorded for future comparisons. If there is enough time to deviate from the core path, agglomerative clustering algorithm will also be used, and these clustering algorithms will be tested again after applying dimensionality reduction methods like PCA/kernel PCA, LDA to the datasets. Given enough time, we will try these dimension reduction algorithms to confirm\cite{baldi1989neural}, in which it is concluded that the linear autoencoders with squared loss functions behave like PCAs. Otherwise, the experiments will continue with the autoencoders.  
 
 \subsection{AutoEncoder and Softmax}
 Rest of the tasks share a similar model. Both of them will be using autoencoders to extract features. Implementation priority will be given to the main parts. First, an autoencoder will be trained and optimized to learn good features, then the output of these features will be passed to the mentioned clustering algorithms in the first task. Then, in the second part the output activations will be swapped with softmax activation function for clustering.\par
-After implementing the minimum requirements, if there is enough time, various additional experiments will be performed. First, we will use linear autoencoder with one hidden layer for clustering to compare the performance to clustering with PCA. Then, we will perform the same experiment for non-linear autoencoder and kernel PCA. After the comparisons, we will try methods like Dropout\cite{srivastava2014dropout} and denoising, to prevent one to one mapping and promote generalization\cite{vincent2010stacked}. Finally we will experiment with ensemble of autoencoders for more robust results. 
+After implementing the minimum requirements, if there is enough time, various additional experiments will be performed. First, we will use linear autoencoder with one hidden layer for clustering to compare the performance to clustering with PCA. Then, we will perform the same experiment for non-linear autoencoder and kernel PCA. After the comparisons, we will try methods like Dropout\cite{srivastava2014dropout} and denoising, to prevent one to one mapping and promote generalization\cite{vincent2010stacked}. Finally, we will experiment with ensemble of autoencoders for more robust results. 
 
 \subsection{Similar Work}
 
-In the study\cite{hinton2006reducing}, autoencoders are compared to non-linear PCA and other dimensionality reduction methods. And it is stated that the autoencoders out perform PCA, logistic PCA, latent semantic analysis (LSA) and locar linear embedding techniques. The results of the reconstructions of MNIST digits from the study can be seen below.
+In the study\cite{hinton2006reducing}, autoencoders are compared to non-linear PCA and other dimensionality reduction methods. And it is stated that the autoencoders outperform PCA, logistic PCA, latent semantic analysis (LSA) and local linear embedding techniques. The results of the reconstructions of MNIST digits from the study can be seen below.
 
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=2.5in]{images/hinton_mnist.png}
-  \caption{Top to bottom: Random test images, autoencoder reconstruction, logistic PCA reconstruction and standart PCA reconstruction.\newline Adapted from : \cite{hinton2006reducing}}
+  \caption{Top to bottom: Random test images, autoencoder reconstruction, logistic PCA reconstruction and standard PCA reconstruction.\newline Adapted from : \cite{hinton2006reducing}}
   \label{fig_hinton_mnist}
   \end{figure}
 
@@ -718,7 +718,7 @@ In their model, softmax is applied to the resulting output vector from the autoe
 
 \section{Discussion}
 
-At the end of the experiments, the evaluation of each model's cluster assignments will be calculated by using the V-measure. Since it takes into account both completeness and homogenity of the clusters, it will be our choice of evaluation\cite{rosenberg2007v}. On the other hand we will also use the Fowlkes-Mallows score. Because it allows us to compare the performance of our three different methods\cite{fowlkes1983method}. Also as an addition, we plan to evaluate the contingency matrix of each model, then perform McNemar's test between the models to see the significance of their difference.\par
+At the end of the experiments, the evaluation of each model's cluster assignments will be calculated by using the V-measure. Since it takes into account both completeness and homogeneity of the clusters, it will be our choice of evaluation\cite{rosenberg2007v}. On the other hand we will also use the Fowlkes-Mallows score. Because it allows us to compare the performance of our three different methods\cite{fowlkes1983method}. Also, as an addition, we plan to evaluate the contingency matrix of each model, then perform McNemar's test between the models to see the significance of their difference.\par
 
 This study will improve our understanding of autoencoders and it will give us a chance to observe how they perform compared to the traditional methods. It is assumed that the task of optimizing and fine tuning the encoders will be difficult and time consuming. Another benefit will be the comparison of the softmax clustering to the rest of the methods. Downside of this study will be understanding why the autoencoder does what it does, since it is a black box model. Luckily this is out of the scope of this study. 
 
@@ -726,7 +726,7 @@ In a broader perspective, these experiments will improve our understanding of cl
 
 \section{Conclusion}
 
-We briefly explained the purpose and the tasks of the project. While going through the literature, importance of unsupervised learning was understood. Also it was realized that the field needs more attention. Later on, we described our model and the datasets we are going to use. Then the experiments we are going to perform were described with references to the similar work.In the end the evaluation methods that we will use were explained together with what we expect to gain at the end of this work.\par
+We briefly explained the purpose and the tasks of the project. While going through the literature, importance of unsupervised learning was understood. Also, it was realized that the field needs more attention. Later on, we described our model and the datasets we are going to use. Then the experiments we are going to perform were described with references to the similar work. In the end the evaluation methods that we will use were explained together with what we expect to gain at the end of this work.\par
 
 We believe that this work will provide a lot of insights and practical experiences about clustering, autoencoders and data analysis. With the addition of improving our data presentation skills, such as drawing graphs and plots through software. This will be a good study to put what we learned in theory to practice, do the experiments for ourselves and compare our results to the ones we found. 
 \newpage

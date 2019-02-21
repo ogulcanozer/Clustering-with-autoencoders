@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1550739030 "main.aux" "main.bbl" "main" 1550739472
+["bibtex main"] 1550740213 "main.aux" "main.bbl" "main" 1550740280
   "C:/Users/ogulc/AppData/Local/Programs/MiKTeX 2.9/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1550739472 5039 146b95183a860b84d37618f9326c3e81 ""
+  "main.aux" 1550740279 5039 d5c51b62584f39432bf803857fc3d364 ""
   "refs.bib" 1550731844 8459 b52e25d7517b5f99c14a120f5e530596 ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1550739470 "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.tex" "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.pdf" "main" 1550739472
+["pdflatex"] 1550740277 "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.tex" "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.pdf" "main" 1550740280
   "C:/Users/ogulc/AppData/Local/MiKTeX/2.9/miktex/data/le/pdftex/pdflatex.fmt" 1550090699 4166922 86b02de9f897b7dcc9ede3d99b4a9fb1 ""
   "C:/Users/ogulc/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map" 1550737937 80453 73224248f0a73acd005b5611945eaaa6 ""
   "C:/Users/ogulc/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc" 1458473887 4993 1194fb36dfcb11d9ae9802f2b00b60a3 ""
@@ -137,21 +137,21 @@
   "C:/Users/ogulc/AppData/Local/Programs/MiKTeX 2.9/tex/latex/tools/array.sty" 1546708598 12527 31ab547f6520657998ecf91709f950ac ""
   "C:/Users/ogulc/AppData/Local/Programs/MiKTeX 2.9/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/ogulc/AppData/Local/Programs/MiKTeX 2.9/tex/latex/xcolor/xcolor.sty" 1463135581 57049 74963e80d77be39a0b7442967b27c75b ""
-  "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.aux" 1550739472 5039 146b95183a860b84d37618f9326c3e81 ""
-  "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.tex" 1550739469 42163 e24796d9c19d93db1bae3b819d834ec1 ""
+  "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.aux" 1550740279 5039 d5c51b62584f39432bf803857fc3d364 ""
+  "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.tex" 1550740277 42172 c0ac014dd236f970632627f6344fb5c0 ""
   "images/cor_heat_har.png" 1550619382 348601 9bc8bdfb14fa67464dd63093266f3112 ""
   "images/cor_heat_htru.png" 1550619431 11383 37979077c836143009e51d23f1024d01 ""
   "images/cor_heat_mnist.png" 1550619341 252911 3affe115bd3aefdd13f94024364ac892 ""
   "images/g_chart.png" 1550738620 76004 8bda28c846a3c449b93aae759661bd1e ""
   "images/hinton_mnist.png" 1550688093 495339 a8a7d0061116210cd79e8427fc4200f2 ""
   "images/kM_DBSCAN.png" 1550716730 124180 30e9636f40f06bf3cbbc5e38b42d1f78 ""
-  "main.aux" 1550739472 5039 146b95183a860b84d37618f9326c3e81 ""
-  "main.bbl" 1550739030 7185 2ef95d5bcc7cae5aeaabb8aded915a4c "bibtex main"
-  "main.tex" 1550739469 42163 e24796d9c19d93db1bae3b819d834ec1 ""
+  "main.aux" 1550740279 5039 d5c51b62584f39432bf803857fc3d364 ""
+  "main.bbl" 1550740213 7185 2ef95d5bcc7cae5aeaabb8aded915a4c "bibtex main"
+  "main.tex" 1550740277 42172 c0ac014dd236f970632627f6344fb5c0 ""
   (generated)
   "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.pdf"
-  "main.log"
   "main.pdf"
+  "main.log"
   "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.aux"
   "c:/Users/ogulc/Desktop/pySource/DSDM/DS-DM---Assignment-1/paper/main.log"
   "main.aux"
