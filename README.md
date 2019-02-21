@@ -1,4 +1,7 @@
 # DS-DM---Assignment-1
+
+### Because of the file size, data folder was excluded from the submission file.
+
 Datasets
 
 ## D 1
