@@ -63,6 +63,8 @@ class ae:
 # ACKNOWLEDGEMENTS
 #_______________________________________________________________________________
 #
+#%https://www.tensorflow.org/guide/graphs
+#
 #%https://www.tensorflow.org/guide/low_level_intro
 #
 #%CE802-Machine Learning and Data Mining Lecture2_MLPs.pdf
