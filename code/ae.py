@@ -6,7 +6,7 @@ import numpy as np
 import tensorflow as tf
 
 class ae:
-        def __init__(self, features, labels):
+    def __init__(self, features, labels):
         self.features = features
         self.labels = labels
 
