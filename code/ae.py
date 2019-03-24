@@ -25,18 +25,19 @@ class ae:
         self.mse = tf.reduce_mean(tf.square(self.y - self.d))
         self.opt = tf.train.AdagradOptimizer(ae_conf.ae_param.learning_rate).minimize(self.mse)
         self.init = tf.global_variables_initializer()
+        self.sess = tf.Session()
 
     #Train the auto encoder.
     def train(self, X_train, x_test, batch_size):
         # Initialize parameters
-        tf.Session().run(self.init)
+        self.sess.run(self.init)
         
         # Repeat number of times declared in config.
         for epoch in range(ae_conf.ae_param.ae_epoch):
             e_loss = 0
             for i in range(int(X_train.shape[0]/batch_size)):
                 epoch_input = X_train[ i * batch_size : (i + 1) * batch_size ]
-                _, c = tf.Session().run([self.opt, self.mse], feed_dict={self.x: epoch_input, self.d: epoch_input})
+                _, c = self.sess.run([self.opt, self.mse], feed_dict={self.x: epoch_input, self.d: epoch_input})
                 epoch_loss += c
                 print('Epoch', epoch, '/', ae_conf.ae_param.ae_epoch, 'loss:',e_loss)
         
@@ -47,14 +48,22 @@ class ae:
 
     # Encode a given image.
     def encode_image(self, image):
-        encoded_image = tf.Session().run(self.h, feed_dict={self.x:[image]})
+        encoded_image = self.sess.run(self.h, feed_dict={self.x:[image]})
         return encoded_image
     # Decode a given image.
     def decode_image(self, image):
-        decoded_image = tf.Session().run(self.y, feed_dict={self.x:[image]})
+        decoded_image = self.sess.run(self.y, feed_dict={self.x:[image]})
         return decoded_image
 
 
 #-------------------------------------------------------------------------------
 # End of ae.py 
 #-------------------------------------------------------------------------------
+#_______________________________________________________________________________
+# ACKNOWLEDGEMENTS
+#_______________________________________________________________________________
+#
+#%https://www.tensorflow.org/guide/low_level_intro
+#
+#%CE802-Machine Learning and Data Mining Lecture2_MLPs.pdf
+#_______________________________________________________________________________
