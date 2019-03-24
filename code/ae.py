@@ -1,16 +1,17 @@
-
 #_______________________________________________________________________________
-# CE888 Project |        data.py       | Ogulcan Ozer. | Feb. 2019 | UNFINISHED.
+# CE888 Project |        ae.py       | Ogulcan Ozer. | Feb. 2019 | UNFINISHED.
 #_______________________________________________________________________________
+import ae_config as ae
+import numpy as np
+import tensorflow as tf
 
-class data_struct:
-    
-    def __init__(self, X_train, Y_train, x_test, y_test):
-        self.X_train = X_train
-        self.Y_train = Y_train
-        self.x_test = x_test
-        self.y_test = y_test
+class ae:
+        def __init__(self, features, labels):
+        self.features = features
+        self.labels = labels
+
+
 
 #-------------------------------------------------------------------------------
-# End of data.py  
+# End of ae.py 
 #-------------------------------------------------------------------------------
