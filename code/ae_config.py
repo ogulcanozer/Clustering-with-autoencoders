@@ -1,25 +1,36 @@
 
+#_______________________________________________________________________________
+# CE888 Project |     ae_config.py    | Ogulcan Ozer. | Feb. 2019 | UNFINISHED.
+#_______________________________________________________________________________
+
 class ae_param:
-
-    # error counter for user inputs
-    max_err = 3         
-
-    # ratio of the test dataset for final assessment
-    te_size = 0.3
-
-    # parameters for autoencoder
-    act_en1 = "relu"    # activation function for 1st encoder
-    act_en2 = "relu"    # activation function for 2nd encoder
-    act_de1 = "relu"    # activation function for 1st decoder
-    act_de2 = "relu"    # activation function for 2nd decoder
     
-    dim_en1 = 5         # number of 1st encoder outputs (dimensions)
-    dim_en2 = 3         # number of 2nd encoder outputs
-    dim_de1 = 5         # number of 1st decoder outputs
+    #Standart AE parameters ###################
+    #                                         #
+    #Activation functions for standard AE     #
+    af_aenc = "relu"                         ##
+    af_adec= "relu"                          ##
+    #Dimensions                               #
+    ###########################################
+    #Stacked AE parameters ####################
+    #                                         #
+    #Activation functions for standard AE     #
+    saf_aenc1 = "relu"                       ##
+    saf_aenc1 = "relu"                       ##
+    saf_adec= "relu"                         ##
+    saf_adec1 = "relu"                       ##
+    #Dimensions                               #
+    ###########################################
 
-    loss_ae = "binary_crossentropy"     # loss function for autoencoder
-    opt_ae = "adam"     # optimizer for autoencoder
+    #Global parameters ########################
+    #                                         #
+    ae_loss = "binary_crossentropy"          ##
+    ae_opt = "adam"                          ##
+    ae_epoch = 10                            ##
+    learning_rate = 0.1                      ##
+    verbosity = 1                            ##
+    ###########################################
 
-    ae_epochs = 10      # training epochs for autoencoder
-    vb_ae = 1           # verbosity mode for autoencoder
-                          #(0: none, 1: bar, 2: line/epoch)
+#-------------------------------------------------------------------------------
+# End of ae_config.py 
+#-------------------------------------------------------------------------------

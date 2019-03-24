@@ -112,10 +112,8 @@ cluster_data(d_mnist.X_train,d_mnist.Y_train, 10)
 # print(df_dummies.head())
 # print()
 # np.savetxt("dummy_out.txt", df_dummies.columns.to_numpy(),fmt="%s")
-#************* USE TO SAVE AND DISPLAY THE MODEL *************#
-# writer = tf.summary.FileWriter('.')
-# writer.add_graph(tf.get_default_graph())
-# writer.flush()
+
+
 
 #-------------------------------------------------------------------------------
 #                               End of aec.py
