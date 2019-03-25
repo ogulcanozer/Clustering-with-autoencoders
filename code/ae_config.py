@@ -11,6 +11,11 @@ class ae_param:
     af_aenc = "relu"                         ##
     af_adec= "relu"                          ##
     #Dimensions                               #
+    #                                         #
+    #                                         #
+    #                                         #
+    #                                         #
+    #                                         #
     ###########################################
     #Stacked AE parameters ####################
     #                                         #
@@ -20,8 +25,12 @@ class ae_param:
     saf_adec= "relu"                         ##
     saf_adec1 = "relu"                       ##
     #Dimensions                               #
+    #                                         #
+    #                                         #
+    #                                         #
+    #                                         #
+    #                                         #
     ###########################################
-
     #Global parameters ########################
     #                                         #
     ae_loss = "binary_crossentropy"          ##
