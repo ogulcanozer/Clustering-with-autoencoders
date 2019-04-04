@@ -1,5 +1,3 @@
-
-
 ##************************
 import tensorflow as tf
 from keras.models import Sequential, Model
@@ -12,9 +10,8 @@ import numpy as np
 import os
 import seaborn as sns
 import matplotlib.pyplot as plt
+from ae import make_ae
 from data import data_struct as DS
-from encoder import make_encoder as end
-from decoder import make_decoder as ded
 ##************************
 
 #Read and seperate the mnist dataset.
@@ -28,17 +25,19 @@ x_train = x_train.reshape((len(x_train), np.prod(x_train.shape[1:])))
 x_test = x_test.reshape((len(x_test), np.prod(x_test.shape[1:])))
 print (x_train.shape)
 print (x_test.shape)
-
-print(autoencoder.summary())
-autoencoder.compile(optimizer='adadelta', loss='binary_crossentropy')
-autoencoder.fit(x_train, x_train,
-                epochs=10,
+ae = make_ae(784,[32],32,[784],['relu'],['sigmoid'])
+print(ae.autoencoder.summary())
+ae.autoencoder.compile(optimizer='adadelta', loss='binary_crossentropy')
+ae.autoencoder.fit(x_train, x_train,
+                epochs=50,
                 batch_size=256,
                 shuffle=True,
                 validation_data=(x_test, x_test))
 
-encoded_imgs = encoder.predict(x_test)
-decoded_imgs = decoder.predict(encoded_imgs)
+encoded_imgs = ae.encoder.predict(x_test)
+decoded_imgs = ae.decoder.predict(encoded_imgs)
+print (encoded_imgs.shape)
+print (decoded_imgs.shape)
 # use Matplotlib (don't ask)
 import matplotlib.pyplot as plt
 
