@@ -21,25 +21,14 @@ from decoder import make_decoder as ded
 from keras.datasets import mnist
 import numpy as np
 (x_train, _), (x_test, _) = mnist.load_data()
-input_h = Input(shape=(784,))
-enc = end(input_h,[128,64,16],["relu","relu","relu"])
-dec = ded(enc.encode,[64,128,784],["relu","relu","relu"])
-print(enc.encode)
-print(dec.decode)
+
 x_train = x_train.astype('float32') / 255.
 x_test = x_test.astype('float32') / 255.
 x_train = x_train.reshape((len(x_train), np.prod(x_train.shape[1:])))
 x_test = x_test.reshape((len(x_test), np.prod(x_test.shape[1:])))
 print (x_train.shape)
 print (x_test.shape)
-autoencoder = Model (input_h, dec.decode)
-encoder = Model(input_h, enc.encode)
-# create a placeholder for an encoded (32-dimensional) input
-encoded_input = Input(shape=(16,))
-# retrieve the last layer of the autoencoder model
-decoder_layer = autoencoder.layers[-3]
-# create the decoder model
-decoder = Model(encoded_input, decoder_layer(encoded_input))
+
 print(autoencoder.summary())
 autoencoder.compile(optimizer='adadelta', loss='binary_crossentropy')
 autoencoder.fit(x_train, x_train,
