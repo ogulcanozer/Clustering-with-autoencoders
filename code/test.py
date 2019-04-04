@@ -25,9 +25,9 @@ x_train = x_train.reshape((len(x_train), np.prod(x_train.shape[1:])))
 x_test = x_test.reshape((len(x_test), np.prod(x_test.shape[1:])))
 print (x_train.shape)
 print (x_test.shape)
-ae = make_ae(784,[32],32,[784],['relu'],['sigmoid'])
+ae = make_ae(784,[128,64,32],32,[64,128,784],['relu','relu','relu'],['relu','relu','sigmoid'])
 print(ae.autoencoder.summary())
-ae.autoencoder.compile(optimizer='adadelta', loss='binary_crossentropy')
+ae.autoencoder.compile(optimizer='adam', loss='binary_crossentropy')
 ae.autoencoder.fit(x_train, x_train,
                 epochs=50,
                 batch_size=256,

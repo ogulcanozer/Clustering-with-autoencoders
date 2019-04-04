@@ -2,8 +2,7 @@ import keras
 from keras.models import Sequential, Model
 from keras.layers import Dense, Input
 import numpy as np
-from encoder import make_encoder as end
-from decoder import make_decoder as ded
+
 
 class make_ae:
 
