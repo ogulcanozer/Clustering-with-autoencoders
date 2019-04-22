@@ -8,8 +8,8 @@ class ae_param:
     #Standart AE parameters ###################
     #                                         #
     #Activation functions for standard AE     #
-    af_aenc = "relu"                         ##
-    af_adec= "relu"                          ##
+    af_aenc = "linear"                       ##
+    af_adec= "linear"                        ##
     #Dimensions                               #
     #                                         #
     #                                         #
@@ -35,7 +35,8 @@ class ae_param:
     #                                         #
     ae_loss = "binary_crossentropy"          ##
     ae_opt = "adam"                          ##
-    ae_epoch = 10                            ##
+    ae_epoch = 50                            ##
+    ae_batch = 256                           ##
     learning_rate = 0.1                      ##
     verbosity = 1                            ##
     ###########################################

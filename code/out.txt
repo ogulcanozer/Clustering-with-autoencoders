@@ -1,0 +1,138 @@
+Pulsar : 
+Homogenity:  0.5298533180401581
+Completeness:  0.09985758924026407
+V-measure:  0.16804496913973047
+Har : 
+Homogenity:  0.569357244780732
+Completeness:  0.5978722701258081
+V-measure:  0.5832664512032797
+Mnist : 
+Homogenity:  0.4865448523155263
+Completeness:  0.4976834961343788
+V-measure:  0.49205114546423934
+Pulsar pca : 
+Homogenity:  0.532911866610726
+Completeness:  0.09991242200853935
+V-measure:  0.16827582716947045
+Har pca: 
+Homogenity:  0.5696566351007106
+Completeness:  0.5974837896499814
+V-measure:  0.5832384825706508
+Mnist pca: 
+Homogenity:  0.4861110413753988
+Completeness:  0.4972852153095971
+V-measure:  0.491634643169424
+RUN: 2019-04-19 20:32:54
+Pulsar : 
+Homogenity:  0.5301437246074607
+Completeness:  0.09888882930782544
+V-measure:  0.16668546632447354
+Har : 
+Homogenity:  0.570073251947499
+Completeness:  0.5991617756140198
+V-measure:  0.5842556779696726
+Mnist : 
+Homogenity:  0.48608151257605386
+Completeness:  0.4971471119482034
+V-measure:  0.4915520441962838
+Pulsar pca : 
+Homogenity:  0.5325885516179863
+Completeness:  0.09992414772666065
+V-measure:  0.1682763276201224
+Har pca: 
+Homogenity:  0.5704202173312298
+Completeness:  0.5996165052863457
+V-measure:  0.5846540893103623
+Mnist pca: 
+Homogenity:  0.48589722253955575
+Completeness:  0.4970163462235412
+V-measure:  0.49139389232499897
+Pulsar ae : 
+Homogenity:  0.5764793548097349
+Completeness:  0.10900284771044103
+V-measure:  0.18333923503634453
+Har ae: 
+Homogenity:  0.41536027427174643
+Completeness:  0.4701267772728143
+V-measure:  0.44104989860645444
+Mnist ae: 
+Homogenity:  0.35633118938719643
+Completeness:  0.36424597624536853
+V-measure:  0.36024511498660505
+RUN: 2019-04-20 18:18:29
+Pulsar : 
+Homogenity:  0.5317112650608423
+Completeness:  0.09978971354327827
+V-measure:  0.1680419084874221
+Har : 
+Homogenity:  0.5696566351007106
+Completeness:  0.5974837896499814
+V-measure:  0.5832384825706508
+Mnist : 
+Homogenity:  0.48651059903817007
+Completeness:  0.49756915836059284
+V-measure:  0.49197774362680824
+Pulsar pca : 
+Homogenity:  0.5322992456361871
+Completeness:  0.10054429250692162
+V-measure:  0.16914023081122398
+Har pca: 
+Homogenity:  0.5700529714204641
+Completeness:  0.5991674536652056
+V-measure:  0.5842477261124779
+Mnist pca: 
+Homogenity:  0.48657864666394673
+Completeness:  0.49772421639907966
+V-measure:  0.49208832914230843
+Pulsar ae : 
+Homogenity:  0.4731704112241776
+Completeness:  0.08493560614595774
+V-measure:  0.1440192882242454
+Har ae: 
+Homogenity:  0.4202956313615153
+Completeness:  0.46809126907101034
+V-measure:  0.4429077361974355
+Mnist ae: 
+Homogenity:  0.35697592198269545
+Completeness:  0.36561265300689205
+V-measure:  0.36124267228430873
+RUN: 2019-04-20 19:10:00
+Pulsar ae : 
+RUN: 2019-04-20 19:13:19
+Pulsar ae : 
+Homogenity:  0.39593891871416137
+Completeness:  0.07031158523114081
+V-measure: 
+----------------
+Accuracy:  0.2778320994552312
+Har ae: 
+Homogenity:  0.4152532167893774
+Completeness:  0.4644534162718976
+V-measure: 
+----------------
+Accuracy:  0.11738302502720348
+Mnist ae: 
+Homogenity:  0.4206049703833249
+Completeness:  0.4296337834655099
+V-measure: 
+----------------
+Accuracy:  0.13652727272727272
+RUN: 2019-04-20 19:34:07
+Pulsar ae : 
+Homogenity:  0.05423860019568151
+Completeness:  0.02966635569332922
+V-measure: 
+----------------
+Accuracy:  0.6653163849699679
+Har ae: 
+Homogenity:  0.5490507536489921
+Completeness:  0.6088601734985949
+V-measure: 
+----------------
+Accuracy:  0.08841131664853101
+Mnist ae: 
+Homogenity:  0.405270735027689
+Completeness:  0.4125459921160523
+V-measure: 
+----------------
+Accuracy:  0.07423636363636364
