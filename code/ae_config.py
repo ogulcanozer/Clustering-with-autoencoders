@@ -33,10 +33,10 @@ class ae_param:
     ###########################################
     #Global parameters ########################
     #                                         #
-    ae_loss = "binary_crossentropy"          ##
+    ae_loss = "mean_squared_error"           ##
     ae_opt = "adam"                          ##
-    ae_epoch = 50                            ##
-    ae_batch = 256                           ##
+    ae_epoch = 100                           ##
+    ae_batch = 128                           ##
     learning_rate = 0.1                      ##
     verbosity = 1                            ##
     ###########################################
