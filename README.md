@@ -1,5 +1,11 @@
 # DS-DM---Assignment-1
 
+### Abstract
+
+In this work, we explore autoencoders with a hidden softmax layer as a clustering method, by training an autoencoder and using the maximum of the output vector as our cluster assignment. 
+We also examine traditional clustering algorithms and experiment with feature selection methods to see how they perform compared to each other. 
+\end{abstract}
+
 ### Because of the file size, data folder was excluded from the submission file.
 
 Datasets
