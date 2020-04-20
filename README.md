@@ -6,8 +6,6 @@ In this work, we explore autoencoders with a hidden softmax layer as a clusterin
 We also examine traditional clustering algorithms and experiment with feature selection methods to see how they perform compared to each other. 
 
 
-### Because of the file size, data folder was excluded from the submission file.
-
 Datasets
 
 ## D 1
