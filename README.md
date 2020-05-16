@@ -1,4 +1,4 @@
-# DS-DM---Assignment-1
+# Structure in compressed spaces
 
 ### Abstract
 
